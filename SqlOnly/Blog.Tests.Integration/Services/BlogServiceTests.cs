@@ -28,11 +28,12 @@ public class BlogServiceTests : AccelergreatXunitTest
     public async Task Inserts_a_Post()
     {
         var title = "A test post";
-        var text = "This post was made in an integration test and was saved to a Sqlite instance managed by Accelergreat.";
-
+        var text = "This post was made in an integration test and was saved to a SQL instance managed by Accelergreat.";
+        
         var user = GetComponent<BlogSqlAccelergreatComponent>().Users.First();
 
         await using var testContext = CreateContext();
+        
         var service = new BlogService(testContext);
 
         var resultingPost = await service.CreatePost(user.UserId, title, text);
@@ -55,7 +56,7 @@ public class BlogServiceTests : AccelergreatXunitTest
     [Fact]
     public async Task Inserts_a_Comment()
     {
-        var text = "This comment was made in an integration test and was saved to a Sqlite instance managed by Accelergreat.";
+        var text = "This comment was made in an integration test and was saved to a SQL instance managed by Accelergreat.";
 
         var user = GetComponent<BlogSqlAccelergreatComponent>().Users.Last();
         var post = GetComponent<BlogSqlAccelergreatComponent>().Posts.First();

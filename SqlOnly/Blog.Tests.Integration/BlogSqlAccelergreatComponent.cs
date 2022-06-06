@@ -1,13 +1,18 @@
-﻿using Accelergreat.EntityFramework.Sqlite;
+﻿using Accelergreat.EntityFramework.SqlServer;
 using Blog.Data;
 using Blog.Data.Entities;
+using Microsoft.Extensions.Configuration;
 
 namespace Blog.Tests.Integration;
 
-public class BlogSqlAccelergreatComponent : SqliteEntityFrameworkDatabaseComponent<BlogDbContext>
+public class BlogSqlAccelergreatComponent : SqlServerEntityFrameworkDatabaseComponent<BlogDbContext>
 {
     public IReadOnlyCollection<User> Users { get; private set; } = Array.Empty<User>();
     public IReadOnlyCollection<Post> Posts { get; private set; } = Array.Empty<Post>();
+
+    public BlogSqlAccelergreatComponent(IConfiguration configuration) : base(configuration)
+    {
+    }
 
     protected override async Task OnDatabaseInitializedAsync(BlogDbContext context)
     {
@@ -29,4 +34,5 @@ public class BlogSqlAccelergreatComponent : SqliteEntityFrameworkDatabaseCompone
 
         Posts = new[] { post0 };
     }
+
 }

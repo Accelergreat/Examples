@@ -17,11 +17,13 @@ public class CommentConfiguration : IEntityTypeConfiguration<Comment>
 
         builder.HasOne(x => x.Post)
             .WithMany(x => x.Comments)
-            .HasForeignKey(x => x.PostId);
+            .HasForeignKey(x => x.PostId)
+            .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasOne(x => x.User)
             .WithMany(x => x.Comments)
-            .HasForeignKey(x => x.UserId);
+            .HasForeignKey(x => x.UserId)
+            .OnDelete(DeleteBehavior.NoAction);
 
         builder.ToTable(nameof(Comment));
     }

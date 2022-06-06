@@ -20,5 +20,5 @@ public class Post
     public string Text { get; private set; }
 
     public User User { get; private set; } = null!;
-    public IReadOnlyCollection<Comment> Comments { get; private set; } = Array.Empty<Comment>();
+    public IList<Comment> Comments { get; private set; } = new List<Comment>();
 }

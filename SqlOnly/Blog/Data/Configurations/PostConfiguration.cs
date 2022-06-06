@@ -17,7 +17,8 @@ public class PostConfiguration : IEntityTypeConfiguration<Post>
 
         builder.HasOne(x => x.User)
             .WithMany(x => x.Posts)
-            .HasForeignKey(x => x.UserId);
+            .HasForeignKey(x => x.UserId)
+            .OnDelete(DeleteBehavior.NoAction);
 
         builder.ToTable(nameof(Post));
     }

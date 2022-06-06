@@ -15,6 +15,6 @@ public class User
     public int UserId { get; private set; }
     public string Name { get; private set; }
 
-    public IReadOnlyCollection<Comment> Comments { get; private set; } = Array.Empty<Comment>();
-    public IReadOnlyCollection<Post> Posts { get; private set; } = Array.Empty<Post>();
+    public IList<Comment> Comments { get; private set; } = new List<Comment>();
+    public IList<Post> Posts { get; private set; } = new List<Post>();
 }
