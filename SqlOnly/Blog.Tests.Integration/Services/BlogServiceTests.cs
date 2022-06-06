@@ -51,4 +51,32 @@ public class BlogServiceTests : AccelergreatXunitTest
         databasePost.Title.Should().Be(title);
         databasePost.Text.Should().Be(text);
     }
+
+    [Fact]
+    public async Task Inserts_a_Comment()
+    {
+        var text = "This comment was made in an integration test and was saved to a Sqlite instance managed by Accelergreat.";
+
+        var user = GetComponent<BlogSqlAccelergreatComponent>().Users.Last();
+        var post = GetComponent<BlogSqlAccelergreatComponent>().Posts.First();
+
+        await using var testContext = CreateContext();
+        var service = new BlogService(testContext);
+
+        var resultingComment = await service.CreateComment(post.PostId, user.UserId, text);
+
+        // Assert the result from the service is as expected
+        resultingComment.UserId.Should().Be(user.UserId);
+        resultingComment.PostId.Should().Be(post.PostId);
+        resultingComment.Text.Should().Be(text);
+
+        // Assert the data stored to the database is as expected
+        // This is done on a separate DbContext to ensure in-memory instances are not used
+        await using var assertionContext = CreateContext();
+        var databasePost = await assertionContext.Set<Comment>().SingleAsync(x => x.CommentId == resultingComment.CommentId);
+
+        databasePost.UserId.Should().Be(user.UserId);
+        databasePost.PostId.Should().Be(post.PostId);
+        databasePost.Text.Should().Be(text);
+    }
 }
