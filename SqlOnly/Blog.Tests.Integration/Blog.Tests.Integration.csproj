@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Accelergreat.EntityFramework.SqlServer" Version="1.3.6" />
+		<PackageReference Include="Accelergreat.Xunit" Version="1.3.6" />
+		<PackageReference Include="FluentAssertions" Version="6.7.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Blog\Blog.csproj" />
+	</ItemGroup>
+
+</Project>
