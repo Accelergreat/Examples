@@ -1,0 +1,8 @@
+{
+  "$schema": "https://cdn.accelergreat.net/configuration/1.4.5-beta/schema.json#",
+  "PostgreSqlEntityFramework": {
+    "CreateStrategy": "TypeConfigurations",
+    "Host": "postgres",
+    "ResetStrategy": "Transactions"
+  }
+}
