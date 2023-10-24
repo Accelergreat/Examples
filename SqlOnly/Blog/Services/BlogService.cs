@@ -16,6 +16,11 @@ public class BlogService
     {
         var post = new Post(userId, title, text);
 
+        return await CreatePost(post);
+    }
+
+    public async Task<Post> CreatePost(Post post)
+    {
         _dbContext.Set<Post>().Add(post);
 
         await _dbContext.SaveChangesAsync();
