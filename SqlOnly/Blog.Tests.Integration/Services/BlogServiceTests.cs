@@ -3,6 +3,8 @@ using Accelergreat.Xunit;
 using Blog.Data;
 using Blog.Data.Entities;
 using Blog.Services;
+using Blog.Tests.Integration.Customisation;
+using Blog.Tests.Integration.Extensions;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
@@ -29,11 +31,11 @@ public class BlogServiceTests : AccelergreatXunitTest
     {
         var title = "A test post";
         var text = "This post was made in an integration test and was saved to a SQL instance managed by Accelergreat.";
-        
+
         var user = GetComponent<BlogSqlAccelergreatComponent>().Users.First();
 
         await using var testContext = CreateContext();
-        
+
         var service = new BlogService(testContext);
 
         var resultingPost = await service.CreatePost(user.UserId, title, text);
@@ -80,4 +82,33 @@ public class BlogServiceTests : AccelergreatXunitTest
         databasePost.PostId.Should().Be(post.PostId);
         databasePost.Text.Should().Be(text);
     }
+
+    [Theory, AutoNSubstituteData]
+    public async Task Inserts_a_Post_from__AutoFixture(Post post)
+    {
+        var user = GetComponent<BlogSqlAccelergreatComponent>().Users.First();
+
+        post.SetThroughReflection(nameof(Post.UserId), user.UserId);
+
+        await using var testContext = CreateContext();
+
+        var service = new BlogService(testContext);
+
+        var resultingPost = await service.CreatePost(post);
+
+        // Assert the result from the service is as expected
+        resultingPost.UserId.Should().Be(user.UserId);
+        resultingPost.Title.Should().Be(post.Title);
+        resultingPost.Text.Should().Be(post.Text);
+
+        // Assert the data stored to the database is as expected
+        // This is done on a separate DbContext to ensure in-memory instances are not used
+        await using var assertionContext = CreateContext();
+        var databasePost = await assertionContext.Set<Post>().SingleAsync(x => x.PostId == resultingPost.PostId);
+
+        databasePost.UserId.Should().Be(user.UserId);
+        databasePost.Title.Should().Be(post.Title);
+        databasePost.Text.Should().Be(post.Text);
+    }
+
 }
