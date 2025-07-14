@@ -1,0 +1,9 @@
+{
+  "$schema": "https://cdn.accelergreat.net/configuration/1.4.0-beta/schema.json",
+  "SqlServerEntityFramework": {
+    "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=AccelergreatExample;Trusted_Connection=True;TrustServerCertificate=True",
+    "ResetStrategy": "SnapshotRollback",
+    "CreateStrategy": "Migrations",
+    "SnapshotDirectory": "C:\\Temp\\AccelergreatSnapshots"
+  }
+} 
