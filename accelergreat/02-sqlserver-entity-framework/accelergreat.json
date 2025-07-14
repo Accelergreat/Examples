@@ -1,0 +1,7 @@
+{
+  "$schema": "https://cdn.accelergreat.net/configuration/1.4.0-beta/schema.json",
+  "SqlServerEntityFramework": {
+    "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Trusted_Connection=True;TrustServerCertificate=True",
+    "ResetStrategy": "Transactions"
+  }
+} 
