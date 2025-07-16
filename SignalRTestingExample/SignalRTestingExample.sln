@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRServer", "SignalRServer\SignalRServer.csproj", "{F6D5D2B9-F01F-451D-B71D-735766899DEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRClient", "SignalRClient\SignalRClient.csproj", "{F38586B3-E7DC-48FA-B6BB-D58D301A640D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRTests", "SignalRTests\SignalRTests.csproj", "{3E21EC89-D0CD-4D42-8CBE-F7ECED106A3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRPerformanceTests", "SignalRPerformanceTests\SignalRPerformanceTests.csproj", "{EEE7D893-E900-43FD-A057-B897FA8EAE45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6D5D2B9-F01F-451D-B71D-735766899DEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D5D2B9-F01F-451D-B71D-735766899DEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D5D2B9-F01F-451D-B71D-735766899DEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D5D2B9-F01F-451D-B71D-735766899DEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F38586B3-E7DC-48FA-B6BB-D58D301A640D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F38586B3-E7DC-48FA-B6BB-D58D301A640D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F38586B3-E7DC-48FA-B6BB-D58D301A640D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F38586B3-E7DC-48FA-B6BB-D58D301A640D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E21EC89-D0CD-4D42-8CBE-F7ECED106A3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E21EC89-D0CD-4D42-8CBE-F7ECED106A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E21EC89-D0CD-4D42-8CBE-F7ECED106A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E21EC89-D0CD-4D42-8CBE-F7ECED106A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE7D893-E900-43FD-A057-B897FA8EAE45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE7D893-E900-43FD-A057-B897FA8EAE45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE7D893-E900-43FD-A057-B897FA8EAE45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE7D893-E900-43FD-A057-B897FA8EAE45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
